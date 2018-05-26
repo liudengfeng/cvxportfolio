@@ -36,9 +36,9 @@ class BaseConstraint(object):
 
         Args:
           t: time
-          w_plus: post-trade weights
-          z: trade weights
-          v: portfolio value
+          w_plus: post-trade weights 交易后权重
+          z: trade weights   交易权重
+          v: portfolio value 投资组合价值
         """
         if w_plus is None:
             return self._weight_expr(t, None, z, v)
@@ -50,7 +50,7 @@ class BaseConstraint(object):
 
 
 class MaxTrade(BaseConstraint):
-    """A limit on maximum trading size.
+    """限制最大交易量
     """
 
     def __init__(self, ADVs, max_fraction=0.05, **kwargs):
@@ -74,7 +74,7 @@ class MaxTrade(BaseConstraint):
 
 
 class LongOnly(BaseConstraint):
-    """A long only constraint.
+    """A long only constraint. 只允许多头头寸
     """
 
     def __init__(self, **kwargs):
@@ -91,7 +91,7 @@ class LongOnly(BaseConstraint):
 
 
 class LeverageLimit(BaseConstraint):
-    """A limit on leverage.
+    """A limit on leverage. 交易杠杆限制
 
     Attributes:
       limit: A series or number giving the leverage limit.
@@ -116,7 +116,7 @@ class LeverageLimit(BaseConstraint):
 
 
 class LongCash(BaseConstraint):
-    """Requires that cash be non-negative.
+    """Requires that cash be non-negative. 现金非负限制
     """
 
     def __init__(self, **kwargs):
