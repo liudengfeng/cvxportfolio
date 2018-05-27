@@ -40,7 +40,7 @@ class SimulationResult():
         borrow_costs: A series of borrow costs over time.
     """
     def __init__(self, initial_portfolio, policy, cash_key, simulator,
-                 simulation_times=None, PPY=252,
+                 simulation_times=None, PPY=244,
                  timedelta=pd.Timedelta("1 days")):
         """
         Initialize the result object.
@@ -176,7 +176,7 @@ class SimulationResult():
 
     @property
     def annual_growth_rate(self):
-        """The annualized growth rate PPY/T \sum_{t=1}^T log(v_{t+1}/v_t)
+        r"""The annualized growth rate PPY/T \sum_{t=1}^T log(v_{t+1}/v_t)
         """
         return self.growth_rates.sum() * self.PPY / self.growth_rates.size
 

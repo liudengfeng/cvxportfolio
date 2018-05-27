@@ -41,7 +41,9 @@ class BasePolicy(object):
 
     @abstractmethod
     def get_trades(self, portfolio, t=pd.datetime.today()):
-        """Trades list given current portfolio and time t.
+        """
+        给定当前投资组合及时间t的交易列表
+        Trades list given current portfolio and time t.
         """
         return NotImplemented
 
@@ -234,6 +236,7 @@ class SinglePeriodOpt(BasePolicy):
 
     def get_trades(self, portfolio, t=None):
         """
+        给定投资组合及时间t，获取优化交易矢量
         Get optimal trade vector for given portfolio at time t.
 
         Parameters

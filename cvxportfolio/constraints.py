@@ -51,6 +51,8 @@ class BaseConstraint(object):
 
 class MaxTrade(BaseConstraint):
     """限制最大交易量
+
+    ADVs：pd.DataFrame(index:日期， 列：资产) 股票成交量数据
     """
 
     def __init__(self, ADVs, max_fraction=0.05, **kwargs):
